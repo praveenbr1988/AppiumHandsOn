@@ -62,7 +62,6 @@ public class Ecommerce_TC_1 extends BaseTest {
 
 
         fillForm();
-
         //Navigate till the desired shoe is coming on the view
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan 6 Rings\"))"));
         int itemCount = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
@@ -151,6 +150,7 @@ public class Ecommerce_TC_1 extends BaseTest {
             System.out.println(contextName);
             driver.context(contextName);
         }
+
         driver.findElement(By.name("q")).sendKeys("Web Context"+ Keys.ENTER);
         Thread.sleep(3000);
         driver.pressKey(new KeyEvent(AndroidKey.BACK));

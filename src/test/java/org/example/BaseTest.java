@@ -8,7 +8,9 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
@@ -26,7 +28,7 @@ public class BaseTest {
 
     }
 
-    @BeforeSuite
+    @BeforeClass
     public void configureAppium() throws MalformedURLException {
         //starting the Appium Server
         service = new AppiumServiceBuilder()
@@ -39,7 +41,7 @@ public class BaseTest {
         //Setting up the Desired Capabilities
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Praveenemulator");
-        options.setChromedriverExecutable("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\chrome.exe");
+        options.setChromedriverExecutable("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\drivers\\chromedriver.exe");
         //options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\ApiDemos-debug.apk");
         options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\General-Store.apk");
 
@@ -50,12 +52,12 @@ public class BaseTest {
     }
 
 
-    @AfterSuite
+    @AfterClass
     public void tearDown(){
         //Closing the driver
         driver.quit();
         //Stoping Sever
-        service.close();
+        service.stop();
     }
 
 

@@ -15,6 +15,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 
 public class BaseTest {
 
@@ -38,7 +39,9 @@ public class BaseTest {
         //Setting up the Desired Capabilities
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Praveenemulator");
-        options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\ApiDemos-debug.apk");
+        options.setChromedriverExecutable("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\chrome.exe");
+        //options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\ApiDemos-debug.apk");
+        options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\General-Store.apk");
 
         //Android Driver Initilization
         //Provide Appium server URL and Capabilities
@@ -71,6 +74,25 @@ public class BaseTest {
                 "endX", xPos,
                 "endY", yPos
         ));
+    }
+
+
+    public void scrollTillBottomOfPage() throws InterruptedException {
+
+        //way2- Using JavaScript Executor- Scrolling little bit without knowing the destination until the bottom of the page
+        boolean canScrollMore;
+        do{
+            HashMap<Object,Object> args = new java.util.HashMap<>();
+            args.put("left", 100);
+            args.put("top", 100);
+            args.put("width", 200);
+            args.put("height", 200);
+            args.put("direction", "down");
+            args.put("percent", 3.0);
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", args);
+        }while(canScrollMore);
+        Thread.sleep(3000);
+        System.out.println("Scrolling little is Completed");
     }
 
 }

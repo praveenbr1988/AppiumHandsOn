@@ -178,7 +178,7 @@ public class AppiumBasics extends BaseTest{
 
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void goToPage() throws InterruptedException {
         //Go to an activity(page/Screen)---Using JavaScript Executors, give packagename/ActivityName
         ((JavascriptExecutor) driver).executeScript("mobile: startActivity", ImmutableMap.of(

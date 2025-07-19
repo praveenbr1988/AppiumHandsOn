@@ -40,7 +40,13 @@ public class BaseTest {
 
         //Setting up the Desired Capabilities
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("Praveenemulator");
+
+        //To connect to emulator
+        //options.setDeviceName("Praveenemulator");
+
+        //To connect to real Android device
+        options.setDeviceName("Android Device");
+
         options.setChromedriverExecutable("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\drivers\\chromedriver.exe");
         //options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\ApiDemos-debug.apk");
         options.setApp("C:\\Users\\techi\\OneDrive\\Desktop\\Personal1\\Projects\\AppiumHandsOn\\src\\test\\resources\\General-Store.apk");

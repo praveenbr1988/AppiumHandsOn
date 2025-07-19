@@ -46,12 +46,18 @@ public class IOSBaseTest {
         XCUITestOptions options = new XCUITestOptions();
         options.setDeviceName("iPhone 16");
         options.setPlatformName("iOS");
-        options.setApp("/Users/naveenkumarvenkatesan/Documents/pr_workspace/AppiumHandsOn/src/test/resources/UIKitCatalog.app");
+        //options.setApp("/Users/naveenkumarvenkatesan/Documents/pr_workspace/AppiumHandsOn/src/test/resources/UIKitCatalog.app");
         options.setPlatformVersion("18.5");
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
 
+        //setting up capabilities for real device automation
+        options.setCapability("xcodeOrgId","");
+        options.setCapability("xcodeSigningId","iPhone Developer");
+        options.setCapability("udid","");
+        options.setCapability("updateWDABundleIdId","");
 
-        //Android Driver Initilization
+
+        //IOS Driver Initilization
         //Provide Appium server URL and Capabilities
         driver = new IOSDriver(new URL("http://127.0.0.1:4723"),options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

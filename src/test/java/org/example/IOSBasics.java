@@ -33,7 +33,7 @@ public class IOSBasics extends IOSBaseTest{
         driver.findElement(AppiumBy.accessibilityId("Alert Views")).click();
 
         driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Text Entry\"`]")).click();
-        driver.findElement(By.className("XCUIElementTypeTextField")).sendKeys("Naveen");
+        driver.findElement(By.className("XCUIElementTypeTextField")).sendKeys("praveen");
         driver.findElement(By.xpath("//XCUIElementTypeButton[@name=\"OK\"]")).click();
 
         driver.findElement(AppiumBy.iOSNsPredicateString("value == 'Confirm / Cancel' AND name BEGINSWITH 'Confirm / Cancel'")).click();
@@ -65,7 +65,7 @@ public class IOSBasics extends IOSBaseTest{
     }
 
 //Scroll to a text
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void practice_3() throws InterruptedException {
 
         String targetEle = driver.findElement(AppiumBy.accessibilityId("Web View")).getText();
@@ -88,7 +88,16 @@ public class IOSBasics extends IOSBaseTest{
         Assert.assertEquals(driver.findElement(AppiumBy.accessibilityId("Green color component value")).getText(),"220");
         Assert.assertEquals(driver.findElement(AppiumBy.accessibilityId("Blue color component value")).getText(),"105");
 
+    }
 
+    //Use Bundle ID for opening native apps..Here we are trying to open the photos..
+    @Test(enabled = true)
+    public void practice_4() throws InterruptedException {
+
+        Map<String,String> params = new HashMap<>();
+        params.put("bundleId", "com.apple.mobileslideshow");
+        driver.executeScript("mobile:launchApp", params);
+        driver.navigate().back();
 
     }
 

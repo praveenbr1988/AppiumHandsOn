@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class Ecommerce_TC_1 extends BaseTest {
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void fillForm() throws InterruptedException {
 
         //dropdown
@@ -40,7 +40,7 @@ public class Ecommerce_TC_1 extends BaseTest {
 
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void verifyToastMsg() throws InterruptedException {
 
         //dropdown
